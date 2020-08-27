@@ -6,17 +6,19 @@ import { PhotosModule } from './photos/photos.module';
 import { AppRoutingModule } from './app.routing.module';
 import { ErrorsModule } from './errors/errors.module';
 import { HomeModule } from './home/home.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
 	declarations: [
 		AppComponent
 	],
 	imports: [
-		BrowserModule,
-		PhotosModule,
 		AppRoutingModule,
+		BrowserModule,
+		CoreModule,
 		ErrorsModule,
-		HomeModule
+		HomeModule,
+		PhotosModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]
