@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { TokenService } from '../token/token.service';
 
 const API_URL = 'http://localhost:3000';
 
@@ -10,6 +11,7 @@ const API_URL = 'http://localhost:3000';
 export class AuthService {
 
 	constructor(
+		private tokenService: TokenService,
 		private http: HttpClient,
 	) { }
 
@@ -21,6 +23,7 @@ export class AuthService {
 			}, { observe: 'response' })
 			.pipe(tap(res => {
 				const authToken = res.headers.get(`x-access-token`);
+				this.tokenService.setToken(authToken);
 				console.log(`authService authenticate() username ${JSON.stringify(userName)} - authToken ${JSON.stringify(authToken)}`);
 			}));
 	}
