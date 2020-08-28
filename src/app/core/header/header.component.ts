@@ -9,13 +9,13 @@ import { User } from "../user/user";
 })
 export class HeaderComponent {
 
-    user$: Observable<User>; // padrao de observable é colocar $
-    user: User;
+    user$: Observable<User>; // padrao de  observable é colocar $
+    // user: User;
 
     constructor(
         userService: UserService, // nao recebeu private pq nao será utilizado no restante da classe
     ) {
         this.user$ = userService.getUser();
-        this.user$.subscribe(user => this.user = user);
+        // this.user$.subscribe(user => this.user = user);
     }
 }
