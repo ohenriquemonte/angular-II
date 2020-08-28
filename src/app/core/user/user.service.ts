@@ -29,6 +29,11 @@ export class UserService {
         return this.userSubject.asObservable();
     }
 
+    logout() {
+        this.tokenService.removeToken();
+        this.userSubject.next(null);
+    }
+
     setToken(token: string) {
         this.tokenService.setToken(token);
         this.decodeAndNotify();
