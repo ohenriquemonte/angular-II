@@ -46,6 +46,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(routes)
+        // RouterModule.forRoot(routes, { useHash: true }) // Configuração para não precisar setar a devolução do index.html no backend
     ],
     exports: [RouterModule]
 })
