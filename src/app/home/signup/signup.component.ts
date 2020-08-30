@@ -8,7 +8,10 @@ import { Router } from "@angular/router";
 import { PlatformDetectorService } from "src/app/core/platform-detector/platform-detector.service";
 
 @Component({
-    templateUrl: './signup.component.html'
+    templateUrl: './signup.component.html',
+    providers: [
+        userNotTakenValidatorService
+    ]
 })
 export class SignUpComponent implements OnInit {
 
@@ -24,9 +27,6 @@ export class SignUpComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-
-        // const fn = this.userNotTakenValidatorService.checkUserNameTaken();
-
         this.signupForm = this.formBuilder.group({
             email: ['',
                 [
